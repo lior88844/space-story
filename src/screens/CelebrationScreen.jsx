@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const sparkles = ["✨", "🌟", "💫", "⭐", "🎉", "🎊", "🌸", "💖", "🌺", "🦋"];
-const victorySparkles = [...sparkles, "🌈", "🦋", "🌸", "💖", "🌺", "👑", "🎁", "🏆"];
+const sparkles = ["✨", "🌟", "💫", "⭐", "🚀", "🪐", "🌙", "💙", "🌌", "⭐"];
+const victorySparkles = [...sparkles, "🌈", "👑", "🏆", "🎁", "✨", "💫", "🌟", "⭐", "🚀", "🌌"];
 
 export default function CelebrationScreen({ onContinue, chapterTitle, onGoHome, isLastChapter }) {
   const [particles, setParticles] = useState([]);
@@ -41,19 +41,11 @@ export default function CelebrationScreen({ onContinue, chapterTitle, onGoHome, 
         <div className="celebration-content">
           <div className="celebration-crown">👑</div>
           <h1 className="celebration-title">הצלחת!</h1>
-          <p className="celebration-subtitle">שדה הנסיכות נושע!</p>
-
-          <div className="victory-image-wrap">
-            <img
-              src={`${import.meta.env.BASE_URL}images/image-1.png`}
-              alt="שדה הנסיכות הקסום"
-              className="victory-image"
-            />
-          </div>
+          <p className="celebration-subtitle">גלקסיית האור נצלה!</p>
 
           <div className="celebration-message">
-            <p>בזכות האומץ, האהבה והדמיון שלך, הנסיכות חזרו לשדה הקסום. הפרחים פרחו מחדש, השמש זרחה, ואביב שמח חזר לשדה!</p>
-            <p className="victory-quote">💕 &quot;תודה לך, הגיבורה שלנו!&quot; 💕</p>
+            <p>בזכות האומץ, היצירתיות והלב הגדול שלך, יצורי הכוכבים חזרו לגן. הכוכבים זוהרים שוב, הצבעים חזרו, והגלקסייה שרה בשמחה!</p>
+            <p className="victory-quote">🌟 &quot;תודה לך, גיבורת החלל שלנו!&quot; 🌟</p>
           </div>
 
           <div className="celebration-stars">
@@ -93,14 +85,14 @@ export default function CelebrationScreen({ onContinue, chapterTitle, onGoHome, 
       </div>
 
       <div className="celebration-content">
-        <div className="celebration-crown">👑</div>
+        <div className="celebration-crown">🚀</div>
         <h1 className="celebration-title">כל הכבוד!</h1>
-        <p className="celebration-subtitle">עשית את זה! את גיבורה אמיצה!</p>
+        <p className="celebration-subtitle">משימת חלל הושלמה!</p>
         <div className="celebration-princess">
-          <span className="big-emoji">🧚‍♀️</span>
+          <span className="big-emoji">🌟</span>
         </div>
         <div className="celebration-message">
-          <p>הנסיכות אומרות לך תודה! 💕</p>
+          <p>יצורי הכוכבים מוחאים לך כפיים! 🌌</p>
           <p className="chapter-done-label">סיימת: {chapterTitle}</p>
         </div>
         <div className="celebration-stars">

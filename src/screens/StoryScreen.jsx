@@ -1,5 +1,4 @@
 import { useState } from "react";
-import AudioPlayer from "../components/AudioPlayer";
 import MissionCard from "../components/MissionCard";
 import SkipDialog from "../components/SkipDialog";
 
@@ -60,10 +59,6 @@ export default function StoryScreen({ story, chapterIndex, totalChapters, onComp
         </div>
       </div>
 
-      <div className="audio-section">
-        <AudioPlayer key={story.id} src={story.audioFile} />
-      </div>
-
       <div className="mission-section">
         {story.mission ? (
           <MissionCard
@@ -73,8 +68,8 @@ export default function StoryScreen({ story, chapterIndex, totalChapters, onComp
           />
         ) : (
           <div className="prize-section">
-            <div className="prize-emojis">🏆 👑 🎁</div>
-            <p className="prize-text">סיימת את כל הפרקים — מגיע לך הפרס שלך!</p>
+            <div className="prize-emojis">🏆 👑 🚀</div>
+            <p className="prize-text">הצלחת בכל המשימות — מגיע לך הפרס שלך, גיבורת חלל!</p>
             <button className="btn-claim-prize" onClick={handleDone}>
               ✨ קבלי את הפרס! ✨
             </button>

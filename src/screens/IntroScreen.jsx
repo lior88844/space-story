@@ -2,42 +2,42 @@ import { useState } from "react";
 import stories from "../data/stories.json";
 
 const PARENT_INFO = {
-  overview: "הסיפור הוא הרפתקה אינטראקטיבית בת 8 פרקים שבה הילדה מצילה שבע נסיכות קסומות שנלכדו בתוך בועות על ידי ענן אפור. בכל פרק היא שומעת חלק מהסיפור ומבצעת משימה יצירתית בעולם האמיתי. הפרק האחרון הוא פרק ניצחון — ללא משימה — שבו הגיבורה מוכתרת ומקבלת פרס!",
+  overview: "הסיפור הוא הרפתקת חלל אינטראקטיבית בת 8 פרקים שבה הילדה מצילה את גלקסיית האור מן האסטרואיד האפור. שבעה יצורי כוכבים נלכדו בבועות אפורות, ורק הגיבורה יכולה להחזיר אליהם את הצבע. בכל פרק היא שומעת חלק מן הסיפור ומבצעת משימה יצירתית בעולם האמיתי. הפרק האחרון הוא פרק ניצחון — ללא משימה — שבו הגיבורה מוכתרת לשומרת גן הכוכבים ומקבלת פרס!",
   prize: {
     title: "🎁 הפרס בסוף ההרפתקה",
-    description: "בסיום פרק 8 הילדה מוכתרת כ\"שומרת שדה הנסיכות\" ומקבלת מסך ניצחון מיוחד באפליקציה.",
+    description: "בסיום פרק 8 הילדה מוכתרת כ\"שומרת גן הכוכבים\" ומקבלת מסך ניצחון מיוחד באפליקציה.",
     suggestion: "מומלץ להכין מראש הפתעה אמיתית לסיום — לדוגמה:",
     ideas: [
       "כתר נייר מוכן מראש שמחכה לה",
-      "קופסת ממתקים קטנה עטופה כ\"מתנה מהנסיכות\"",
-      "דיפלומת גיבורה מודפסת עם שמה",
+      "קופסת ממתקים קטנה עטופה כ\"מתנה מיצורי הכוכבים\"",
+      "דיפלומת גיבורת חלל מודפסת עם שמה",
       "פעילות מיוחדת שהבטחתם לה מראש",
     ],
   },
   equipment: [
-    { chapter: "פרק 1 – שדה הנסיכות הקסום", items: ["דף נייר גדול", "עפרונות צבעוניים או צבעי מים"] },
-    { chapter: "פרק 2 – שומר הלב", items: ["גישה לחצר, גינה או שביל חוץ", "10 אבנים קטנות או עלים"] },
-    { chapter: "פרק 3 – השיקוי הקסום", items: ["כוס מים", "לימון אחד (לסחיטת מיץ)"] },
-    { chapter: "פרק 4 – מבצר הנסיכות", items: ["כריות רבות", "שמיכות וכיסויים"] },
-    { chapter: "פרק 5 – ההופעה המלכותית", items: ["טלפון או מצלמה לצילום וידאו", "מקום פנוי לריקוד"] },
-    { chapter: "פרק 6 – ממלכת האהבה", items: ["ללא ציוד – רק חיבוקים ומחמאות! 💕"] },
-    { chapter: "פרק 7 – חרב הנסיכה האגדית", items: ["פלסטלינה (עדיף בצבעים ורוד, סגול וזהב)"] },
-    { chapter: "פרק 8 – ניצחון האור והכתרת הגיבורה", items: ["ללא ציוד — פרק ניצחון עם פרס! 🏆"] },
+    { chapter: "פרק 1 – גן הכוכבים הקסום", items: ["דף נייר גדול", "עפרונות צבעוניים, צבעי מים או גואש"] },
+    { chapter: "פרק 2 – מפת הדרך הכוכבית", items: ["דף נייר לבן", "צבע אצבעות, אקוורל או מרקרים צבעוניים"] },
+    { chapter: "פרק 3 – שיקוי דלק החלל", items: ["כוס מים", "לימון אחד (לסחיטת מיץ)"] },
+    { chapter: "פרק 4 – מגדל הגרביטציה", items: ["חפצי בית: ספרים, קופסאות, כריות, קערות", "מקום פנוי לבנייה"] },
+    { chapter: "פרק 5 – מחול הנבולה", items: ["טלפון או מצלמה לצילום וידאו", "מקום פנוי לריקוד"] },
+    { chapter: "פרק 6 – מגן אור הכוכבים", items: ["דף נייר גדול", "עפרונות / צבעי מים / מרקרים", "נצנצים, מדבקות כוכבים — אופציונלי"] },
+    { chapter: "פרק 7 – אות התקווה הגלקטי", items: ["חפצים קטנים וצבעוניים: כפתורים, אבנים, קוביות, צעצועים, פקקים", "טלפון לצילום", "מקום פנוי על הרצפה"] },
+    { chapter: "פרק 8 – ניצחון הכוכבים", items: ["ללא ציוד — פרק ניצחון עם פרס! 🏆"] },
   ],
 };
 
 export default function IntroScreen({ onStart, onGoToChapter }) {
   const [showInfo, setShowInfo] = useState(false);
-  const count = stories.length;
+  const missionCount = stories.filter((s) => s.mission !== null).length;
 
   return (
     <div className="screen intro-screen intro-screen--scrollable">
       <div className="intro-sky">
         <span className="float-emoji e1">⭐</span>
-        <span className="float-emoji e2">✨</span>
+        <span className="float-emoji e2">🌟</span>
         <span className="float-emoji e3">💫</span>
-        <span className="float-emoji e4">🌟</span>
-        <span className="float-emoji e5">✨</span>
+        <span className="float-emoji e4">✨</span>
+        <span className="float-emoji e5">⭐</span>
       </div>
 
       <button
@@ -49,36 +49,36 @@ export default function IntroScreen({ onStart, onGoToChapter }) {
       </button>
 
       <div className="intro-illustration">
-        <div className="castle">🏰</div>
+        <div className="castle">🚀</div>
         <div className="intro-emojis">
-          <span>🌸</span>
-          <span>🧚‍♀️</span>
-          <span>🌺</span>
-          <span>👑</span>
-          <span>🌼</span>
-          <span>🧚‍♀️</span>
-          <span>🌷</span>
+          <span>🌌</span>
+          <span>⭐</span>
+          <span>🪐</span>
+          <span>🌟</span>
+          <span>💫</span>
+          <span>🌙</span>
+          <span>✨</span>
         </div>
         <div className="grass-row">
-          <span>🌿</span><span>🌱</span><span>🌿</span><span>🌱</span><span>🌿</span>
+          <span>🌟</span><span>⭐</span><span>💫</span><span>⭐</span><span>🌟</span>
         </div>
       </div>
 
       <div className="intro-content">
-        <h1 className="intro-title">שדה הנסיכות הקסום</h1>
-        <p className="intro-subtitle">הרפתקה מאגית מחכה לך!</p>
+        <h1 className="intro-title">מסע בין הכוכבים</h1>
+        <p className="intro-subtitle">הרפתקת חלל מחכה לך!</p>
         <p className="intro-desc">
-          נסיכות קסומות נלכדו בשדה הפרחים.
+          יצורי כוכבים נלכדו בגלקסיית האור.
           <br />
-          רק גיבורה כמוך יכולה להציל אותן!
+          רק גיבורת חלל כמוך יכולה להצילם!
         </p>
         <div className="intro-badges">
-          <span className="badge">{count} פרקים</span>
-          <span className="badge">{count} משימות</span>
+          <span className="badge">{stories.length} פרקים</span>
+          <span className="badge">{missionCount} משימות</span>
           <span className="badge">קסם ✨</span>
         </div>
         <button className="btn-start" onClick={onStart}>
-          🌈 בואי נתחיל!
+          🚀 יוצאים לחלל!
         </button>
 
         <div className="chapter-select">
@@ -102,9 +102,9 @@ export default function IntroScreen({ onStart, onGoToChapter }) {
       </div>
 
       <div className="intro-footer">
-        <span>💕</span>
-        <span>🌸</span>
-        <span>💕</span>
+        <span>🌟</span>
+        <span>🚀</span>
+        <span>🌟</span>
       </div>
 
       {showInfo && (
